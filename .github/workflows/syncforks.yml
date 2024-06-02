@@ -7,6 +7,11 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: write
+  id-token: write
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -23,8 +28,8 @@ jobs:
       - name: Get upstream Changes
         run: |
           git remote add upstream https://github.com/gohugoio/hugoDocs.git
-          git remote -v
-          git fetch upstream --prune
+          git remote set-url --push upstream "DISSALLOWPUSH"
+          git fetch upstream --prune 2&>0
           git pull
       - name: Push to fork
         run: |
