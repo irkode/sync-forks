@@ -18,6 +18,7 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    environment: WF_SYNC_TOKEN
 
     steps:
       - name: Checkout
@@ -25,7 +26,7 @@ jobs:
         with:
             repository: irkode/hugoDocs
             ref: master
-            token:  ${{ secrets.WF_SYNC_TOKEN }}
+            token:  ${{ secrets.WF_SYNC_FORK }}
       - name: Get upstream Changes
         run: |
           git remote add upstream https://github.com/gohugoio/hugoDocs.git
