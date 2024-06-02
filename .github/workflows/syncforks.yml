@@ -29,7 +29,7 @@ jobs:
         run: |
           git remote add upstream https://github.com/gohugoio/hugoDocs.git
           git remote set-url --push upstream "DISSALLOWPUSH"
-          git fetch upstream --prune 2&>0
+          git fetch upstream --prune 2>&0
           git pull
       - name: Push to fork
         run: |
