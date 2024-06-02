@@ -25,6 +25,7 @@ jobs:
         with:
             repository: irkode/hugoDocs
             ref: master
+            token:  ${{ secrets.WF_SYNC_TOKEN }}
       - name: Get upstream Changes
         run: |
           git remote add upstream https://github.com/gohugoio/hugoDocs.git
